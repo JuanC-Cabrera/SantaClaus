@@ -12,8 +12,9 @@
 <body>
     <div class="container">
         <div class="columna columna-1">
-            <img src="gifs/mimido.gif" alt="Ta mimido" class="gifs-santa">
+            <img id="img_santa" src="gifs/mimido.gif" alt="Ta mimido" class="gifs-santa">
             <h3 class="texto">Santa esta: </h3>
+            <h2 id="estadoSanta" class="texto">Dormido</h2>
         </div>
         <div class="columna columna-2">
             <div class="fila">
@@ -36,14 +37,27 @@
             </div>
         </div>
     </div>
-    <script>
+    <script type="text/javascript" src="/Concurrent.Thread.js"></script>
+    <script >
+
+        
         //Duendes
         let contadorDuendes = 0;
         const valorContadorDuendes = document.getElementById("valor-Duendes");
 
         function aumentarContadorDuendes() {
-            contadorDuendes++;
-            valorContadorDuendes.textContent = contadorDuendes;
+            if (contadorDuendes <= 2){
+               contadorDuendes++;
+                valorContadorDuendes.textContent = contadorDuendes;
+                if (contadorDuendes === 3){
+                    document.getElementById("img_santa").src="gifs/santa-despierto.gif";
+                    document.getElementById("estadoSanta").innerHTML = "Despierto";
+                    intervaloSanta();
+                    valorContadorDuendes.textContent = 0; 
+                    contadorDuendes = 0; 
+             }
+            }
+            
         }
 
         //Renos
@@ -51,9 +65,28 @@
         const valorContadorRenos = document.getElementById("valor-Renos");
 
         function aumentarContadorRenos() {
-            contadorRenos++;
-            valorContadorRenos.textContent = contadorRenos;
+            if (contadorRenos <= 6){
+                contadorRenos++;
+                 valorContadorRenos.textContent = contadorRenos; 
+                 if (contadorRenos === 7){
+                    document.getElementById("img_santa").src="gifs/santa-despierto.gif";
+                    document.getElementById("estadoSanta").innerHTML = "Despierto";
+                    intervaloSanta();
+                    valorContadorRenos.textContent = 0; 
+                    contadorRenos = 0; 
+             }
+             }
         }
+
+        function cambiarSanta(){
+            document.getElementById("img_santa").src="gifs/mimido.gif";
+            document.getElementById("estadoSanta").innerHTML = "Dormido";
+        }
+ 
+        function intervaloSanta(){
+            setInterval(cambiarSanta,10000);
+        }
+
     </script>
 </body>
 
