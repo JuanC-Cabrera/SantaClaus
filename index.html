@@ -1,1 +1,115 @@
 <!-- Juan Carlos -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hilos Santa Claus</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        div,
+        img {
+            border-radius: 10px;
+        }
+
+        .container {
+            display: flex;
+            min-height: 95%;
+        }
+
+        .columna {
+            flex: 1;
+            padding: 10px;
+            margin: 10px;
+            background-color: #6a93b2;
+        }
+
+        .columna-1 {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .columna-2 {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .fila {
+            flex: 1;
+            padding: 10px;
+            margin: 10px;
+            background-color: #87acc5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .gifs-santa {
+            height: auto;
+            width: 50vw;
+        }
+
+        .gifs-renos {
+            height: auto;
+            width: 25vw;
+        }
+
+        .gifs-duendes {
+            height: auto;
+            width: 25vw;
+        }
+
+        .contenedor-botones {
+            height: 40vh;
+            width: 13vw;
+            background-color: #b6c6d4;
+            margin-left: 20px;
+        }
+
+        .texto {
+            color: antiquewhite;
+            font-size: 1.5rem;
+            font-family: 'Bubblegum Sans', cursive;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="columna columna-1">
+            <img src="gifs/mimido.gif" alt="Ta mimido" class="gifs-santa">
+            <h3 class="texto">Santa esta: </h3>
+        </div>
+        <div class="columna columna-2">
+            <div class="fila">
+                <img src="gifs/renos.gif" alt="zi" class="gifs-renos">
+                <div class="contenedor-botones">
+                    <div class="contador">
+                        <h2 id="valor-Renos">0</h2>
+                        <button onclick="aumentarContadorRenos()">Nuevo Reno</button>
+                    </div>
+                </div>
+            </div>
+            <div class="fila">
+                <img src="gifs/duendes.gif" alt="Duendes castrosos" class="gifs-duendes">
+                <div class="contenedor-botones">
+                    <div class="contador">
+                        <h2 id="valor-Duendes">0</h2>
+                        <button onclick="aumentarContadorDuendes()">Nuevo Duende</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
