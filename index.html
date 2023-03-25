@@ -82,8 +82,12 @@
         }
 
         function cambiarSanta(){
-            document.getElementById("img_santa").src="gifs/mimido.gif";
-            document.getElementById("estadoSanta").innerHTML = "Dormido";
+            var myWorkerSanta = new Worker('./scripts/santa.js');
+            myWorkerSanta.addEventListener('message', function(e) {
+                document.getElementById("img_santa").src=e.data[1];
+                document.getElementById("estadoSanta").innerHTML = e.data[0];
+            });
+            myWorkerSanta.postMessage(["Dormido","gifs/mimido.gif"]);
         }
  
         function intervaloSanta(){
